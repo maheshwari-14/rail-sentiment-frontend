@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
+
 export default function UploadPage() {
   const [uploadMode, setUploadMode] = useState("text"); // 'text' or 'file'
   const [datasetName, setDatasetName] = useState("");
@@ -47,7 +49,7 @@ export default function UploadPage() {
 
       if (uploadMode === "text") {
         const tweetArray = tweets.split("\n").filter((t) => t.trim() !== "");
-        response = await fetch("http://127.0.0.1:8000/analyze", {
+        response = await fetch(`${API_URL}/analyze`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ datasetName, tweets: tweetArray }),
@@ -59,7 +61,7 @@ export default function UploadPage() {
         formData.append("datasetName", datasetName);
         formData.append("file", file);
 
-        response = await fetch("http://127.0.0.1:8000/analyze-file", {
+        response = await fetch(`${API_URL}/analyze-file`, {
           method: "POST",
           body: formData, // Browser automatically sets the correct multipart headers
         });
