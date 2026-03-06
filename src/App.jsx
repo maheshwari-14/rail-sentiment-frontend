@@ -1,8 +1,10 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./components/protected-route";
+import ChartsPage from "./pages/charts-page";
 import DashboardPage from "./pages/dashboard-page";
 import LandingPage from "./pages/landing-page";
 import LoginPage from "./pages/login-page";
+import OntologyPage from "./pages/ontology-page";
 import SignupPage from "./pages/signup-page";
 import UploadPage from "./pages/upload-page";
 
@@ -29,6 +31,22 @@ function App() {
           element={
             <ProtectedRoute>
               <UploadPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/charts"
+          element={
+            <ProtectedRoute>
+              <ChartsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/ontology"
+          element={
+            <ProtectedRoute>
+              <OntologyPage />
             </ProtectedRoute>
           }
         />

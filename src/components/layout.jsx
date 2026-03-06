@@ -1,4 +1,11 @@
-import { LayoutDashboard, LogOut, Train, Upload } from "lucide-react";
+import {
+  BarChart2,
+  LayoutDashboard,
+  LogOut,
+  Network,
+  Train,
+  Upload,
+} from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../hooks/use-auth";
 
@@ -39,6 +46,28 @@ export default function Layout({ children }) {
           >
             <Upload className="h-5 w-5" />
             Upload Dataset
+          </Link>
+          <Link
+            to="/charts"
+            className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+              location.pathname === "/charts"
+                ? "bg-orange-500 text-white shadow-md"
+                : "text-gray-600 hover:bg-orange-50 hover:text-orange-600"
+            }`}
+          >
+            <BarChart2 className="h-5 w-5" />
+            Sentiment Charts
+          </Link>
+          <Link
+            to="/ontology"
+            className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+              location.pathname === "/ontology"
+                ? "bg-orange-500 text-white shadow-md"
+                : "text-gray-600 hover:bg-orange-50 hover:text-orange-600"
+            }`}
+          >
+            <Network className="h-5 w-5" />
+            Knowledge Graph
           </Link>
         </nav>
 
