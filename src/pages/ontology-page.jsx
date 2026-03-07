@@ -168,8 +168,8 @@ function drawGraph(ctx, nodes, edges, selected, dpr, pan, zoom) {
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   // Gradient background
   const grad = ctx.createLinearGradient(0, 0, W, H);
-  grad.addColorStop(0, "#0f172a");
-  grad.addColorStop(1, "#1e293b");
+  grad.addColorStop(0, "#ffffff");
+  grad.addColorStop(1, "#f8fafc");
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, W, H);
 
@@ -179,7 +179,7 @@ function drawGraph(ctx, nodes, edges, selected, dpr, pan, zoom) {
   ctx.scale(zoom, zoom);
 
   const gridSize = 40;
-  ctx.strokeStyle = "rgba(255,255,255,0.04)";
+  ctx.strokeStyle = "rgba(0,0,0,0.05)";
   ctx.lineWidth = 0.5;
   const startX = -pan.x / zoom - 200;
   const startY = -pan.y / zoom - 200;
@@ -224,7 +224,7 @@ function drawGraph(ctx, nodes, edges, selected, dpr, pan, zoom) {
     ctx.moveTo(x1, y1);
     const midY = (y1 + y2) / 2;
     ctx.bezierCurveTo(x1, midY, x2, midY, x2, y2);
-    ctx.strokeStyle = "rgba(255,255,255,0.15)";
+    ctx.strokeStyle = "rgba(0,0,0,0.15)";
     ctx.lineWidth = 1.5;
     ctx.stroke();
 
@@ -236,7 +236,7 @@ function drawGraph(ctx, nodes, edges, selected, dpr, pan, zoom) {
     ctx.lineTo(x2 - arrowLen, y2 - arrowLen);
     ctx.lineTo(x2 + arrowLen, y2 - arrowLen);
     ctx.closePath();
-    ctx.fillStyle = "rgba(255,255,255,0.25)";
+    ctx.fillStyle = "rgba(0,0,0,0.2)";
     ctx.fill();
   });
 
